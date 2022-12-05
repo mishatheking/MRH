@@ -1,0 +1,81 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+        <ol>
+            <li>
+                <a href="home">Home</a>
+            </li>
+            <!-- <li><a href="{% url 'index' %}">Home</a></li> -->
+            <li>profile setting</li>
+        </ol>
+        <h2>Complete/Update your profile</h2>
+
+    </div>
+</section>
+<!-- End Breadcrumbs -->
+
+<section class="inner-page">
+    <div class="container">
+
+
+
+        <div>
+            <div class="lg:p-12 max-w-md max-w-xl lg:my-0 my-12 mx-auto p-6 space-y-">
+                <h1 class="lg:text-3xl text-xl font-semibold mb-6"> </h1>
+            <div>
+                    <style>
+                        h5{
+                            color: red;
+                        }
+                    </style>
+                    {% for message in messages %}
+                    <h5>{{message}}</h5>
+                    {% endfor %}
+            </div>
+
+            <form action="" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+             <div class="grid grid-cols-2 gap-3 lg:p-6 p-4">
+                    
+                <div class="col-span-2">
+                <img width="100" height="100" class="img-fluid" src="{{user_profile.profile_image.url}}" /></br>
+                <label for=""> Profile Image</label>
+                <input type="file" name="image" value="" class="shadow-none bg-gray-100 form-control">
+                </div>
+                </br>
+                <div class="col-span-2">
+                <label for="about">Bio</label>  
+                <textarea id="about" name="bio" rows="3"  class="shadow-none bg-gray-100 form-control">{{user_profile.bio}}</textarea>
+                </div> 
+                </br>
+                <div class="col-span-2">
+                <label for=""> Location</label>
+                <input type="text" name="location" value="{{user_profile.location}}" class="shadow-none bg-gray-100 form-control">
+                </div>
+                </br>
+                <div class="col-span-2">
+                <label for="phone"> phone</label>
+                <input type="text" id="phone" name="phone" value="{{user_profile.phone}}" class="shadow-none bg-gray-100 form-control">
+                </div>
+
+                </br>
+                <div class="bg-gray-10 p-6 pt-0 flex justify-end space-x-3">
+                <button class="btn btn-primary"> <a href="home">Back Home</a> </button>
+                <button type="submit" class="btn  btn-primary"> Save </button>
+                </div>
+              </div> 
+          </form>
+            
+ 
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+
+{% endblock content %}

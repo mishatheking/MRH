@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+ 
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>Fixers</li>
+        </ol>
+        <h2>Meet our team of well versed engineers</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+     <!-- ======= Team Section ======= -->
+
+
+  <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+  
+        <div class="section-title">
+          <h2>MRH</h2>
+        </div>
+  
+        <div class="row">
+          {% for profile in profiles %}
+            <div class="col-lg-6 mt-4 mt-lg-0">
+              <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+                <!-- <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div> -->
+                <div class="pic"><img src="{{profile.profile_image.url}}" class="img-fluid" width="3000" height=400 alt=""></div>
+                <div class="member-info">
+                  <h4>{{profile.user}}</h4>
+                  <span>{{profile.bio}}</span>
+                  <p>{{profile.location}}</p>
+                  <p>{{profile.phone}}</p>
+                  <!-- <div class="social">
+                    <a href=""><i class="ri-twitter-fill"></i></a>
+                    <a href=""><i class="ri-facebook-fill"></i></a>
+                    <a href=""><i class="ri-instagram-fill"></i></a>
+                    <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+  
+        </div>
+  
+      </div>
+    </section>
+    <!-- End Team Section -->
+   
+
+  {% endblock content %}

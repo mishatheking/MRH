@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+        <ol>
+            <li>
+                <a href="home">Home</a>
+            </li>
+            <!-- <li><a href="{% url 'index' %}">Home</a></li> -->
+            <li>Engineer's registration</li>
+        </ol>
+        <h2>Sign up</h2>
+
+    </div>
+</section>
+<!-- End Breadcrumbs -->
+
+<section class="inner-page">
+    <div class="container">
+        <div class="text-center">
+            <h1>Always a pleasure to have new Engineers </h1>
+            <h1>fill in these informatio to get started </h1>
+        </div>
+        <div>
+            <style>
+                h5{
+                    color: red;
+                }
+            </style>
+            {% for message in messages %}
+            <h5>{{message}}</h5>
+            {% endfor %}
+        </div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="Username" class="form-control">
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" name="email"  class="form-control">
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" name="password"  class="form-control">
+            <br>
+            <label for="password2">Confirm Password:</label>
+            <input type="password" name="password2"  class="form-control">
+            <br>
+            
+            <button type="submit" class="btn btn-primary">Sign up</button>
+            <div class="text-center mt-5 space-x-2">
+                    <p class="text-base"> Do you have an account already? <a href="/signin"> Login </a></p>
+                </div>
+        </form>
+    </div>
+</section>
+
+
+{% endblock content %}
