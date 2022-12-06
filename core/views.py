@@ -114,3 +114,7 @@ def logout(request):
     auth.logout(request)
     return redirect('signin')
 
+
+def group(request):
+    return render(request, 'group.html')
+    
