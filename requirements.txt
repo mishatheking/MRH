@@ -13,4 +13,5 @@ pylint==2.15.7
 sqlparse==0.4.3
 tomlkit==0.11.6
 tzdata==2022.7
+whitenoise==6.2.0
 wrapt==1.14.1
